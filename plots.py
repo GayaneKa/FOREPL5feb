@@ -95,7 +95,7 @@ def main(dat,opt):
 
 
 
-tempdat = strtofloat(main(ardat,4))
+'''tempdat = strtofloat(main(ardat,4))
 dewdat = strtofloat(main(ardat,5))
 humdat = strtofloat(main(ardat,6))
 presdat = strtofloat(main(ardat,7))
@@ -130,10 +130,10 @@ ax[0,1].set_ylim(0,70)
 ax[0,0].set_ylim(0,70)
 plt.savefig('Figure3.png', dpi = 600)
 
-plt.show()
+plt.show()'''
 #---------------------------------------------------Figure 1----------------------------------------
 
-'''l= max(main(ardat,1))+1
+l= max(main(ardat,1))+1
 
 fig, ax = plt.subplots(figsize=(16, 12))
 
@@ -142,11 +142,11 @@ ax2=plt.subplot(2, 2, 2)
 ax1=plt.subplot(2,2,(3,4))
 
 fig.suptitle('Thunderstorm daily, monthly and yearly activity',fontsize = 20)
-fforplot.hourlyplot(fig,ax1,main(ardat,1,0),main(nadat,1,0),main(yedat,1,0),8,l)
-fforplot.monthlybar(main(ardat,2,0),main(nadat,2,0),main(yedat,2,0),ax2)
-fforplot.yearlybar(main(ardat,3,0),main(nadat,3,0),main(yedat,3,0),ax3)
-plt.savefig('Figure1.png', dpi = 600)
-plt.show()'''
+fforplot.hourlyplot(fig,ax1,main(ardat,1),main(nadat,1),main(yedat,1),8,l)
+fforplot.monthlybar(main(ardat,2),main(nadat,2),main(yedat,2),ax2)
+fforplot.yearlybar(main(ardat,3),main(nadat,3),main(yedat,3),ax3)
+plt.savefig('Figure1.png')
+plt.show()
 
 #--------------------------------------------Figure2-----------------------------
 '''arwinds = []
@@ -169,5 +169,3 @@ fforplot.yearlybar(arwinds,nawinds,yewinds,ax3)
 #fforplot.yearlybar(artemps,natemps,yetemps,ax2)
 plt.savefig('Figure2.png') #, dpi = 600)
 plt.show()'''
-
-

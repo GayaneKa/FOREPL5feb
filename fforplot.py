@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
+h = "xx"
 def hourlyplot(fig,ax1,arag,nora,yere,i,lim):
     aragats = arag
     noramberd = nora
@@ -9,7 +9,7 @@ def hourlyplot(fig,ax1,arag,nora,yere,i,lim):
     ax1.set_ylim(0,lim)
     ax1.bar(y_pos, aragats, width = 0.3, label = 'Aragats',  hatch= "-", edgecolor = 'white', color='C0')
     ax1.bar(y_pos - 0.3, noramberd,width = 0.3,label = 'Nor Amberd', hatch= "\\\\", edgecolor = 'white', color='C3')
-    ax1.bar(y_pos + 0.3, yerevan,width = 0.3,label = 'Yerevan', hatch= " ", edgecolor = 'white', color='C1')
+    ax1.bar(y_pos + 0.3, yerevan,width = 0.3,label = 'Yerevan', hatch= h, edgecolor = 'white', color='C1')
     ax1.tick_params(axis='both', which='major', labelsize=16)
     ax1.set_ylabel('Averaged count of event per year', fontsize = 18)
     ax1.set_xlabel('Time(LT)', fontsize = 18)
@@ -20,7 +20,7 @@ def monthlybar(mlst1,mlst2,mlst3,ax2):
 
     ax2.bar(ind1  , mlst1 ,width = 0.3,label = 'Aragats', hatch= "-", edgecolor = 'white', color='C0')
     ax2.bar(ind1 - 0.3, mlst2 ,width = 0.3,label = 'Nor Amberd',  hatch= "\\\\", edgecolor = 'white', color='C3')
-    ax2.bar(ind1 + 0.3, mlst3 ,width = 0.3,label = 'Yerevan', hatch= " ", edgecolor = 'white', color='C1')
+    ax2.bar(ind1 + 0.3, mlst3 ,width = 0.3,label = 'Yerevan', hatch= h, edgecolor = 'white', color='C1')
     ax2.set_ylim(0,120)
     xTickMarks = [' ','April','May','June','July','Aug.','Sept.','Oct.']
     xtickNames = ax2.set_xticklabels(xTickMarks)
@@ -34,7 +34,7 @@ def yearlybar(lst1,lst2,lst3,ax3):
     ind = np.arange(8)
     ax3.bar(ind  , lst1 ,width = 0.3,label = 'Aragats', hatch= "-", edgecolor = 'white', color='C0')
     ax3.bar(ind - 0.3, lst2 ,width = 0.3,label = 'Nor Amberd', hatch= "\\\\", edgecolor = 'white', color='C3')
-    ax3.bar(ind + 0.3, lst3 ,width = 0.3,label = 'Yerevan', hatch= " ", edgecolor = 'white', color='C1')
+    ax3.bar(ind + 0.3, lst3 ,width = 0.3,label = 'Yerevan', hatch= h, edgecolor = 'white', color='C1')
     #ax3.legend(loc='center left', bbox_to_anchor=(1, 0.5), fontsize = 13)
     ax3.legend(fontsize = 18)
     #ax3.set_ylim(0,120)
