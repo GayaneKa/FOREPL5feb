@@ -42,9 +42,9 @@ def yearlybar(lst1,lst2,lst3,ax3):
     xtickNames = ax3.set_xticklabels(xTickMarks)
     plt.setp(xtickNames, fontsize = 20)
     ax3.tick_params(axis='both', which='major', labelsize=18)
-    #ax3.set_ylabel('Count of Thunderstorm', fontsize = 18)
-    ax3.set_title('Averaged max wind speed during thunderstorms (2012-2019)', fontsize = 22)
-    ax3.set_ylabel('Averaged wind speed(m/s)', fontsize = 20)
+    ax3.set_ylabel('Count of Thunderstorm', fontsize = 18)
+    #ax3.set_title('Averaged max wind speed during thunderstorms (2012-2019)', fontsize = 22)
+    #ax3.set_ylabel('Averaged wind speed(m/s)', fontsize = 20)
     ax3.set_xlabel('Years', fontsize = 20)
     ax3.text(-1, -15, 'c)', fontsize = 18)
 
