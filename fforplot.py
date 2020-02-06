@@ -36,15 +36,17 @@ def yearlybar(lst1,lst2,lst3,ax3):
     ax3.bar(ind - 0.3, lst2 ,width = 0.3,label = 'Nor Amberd', hatch= "\\\\", edgecolor = 'white', color='C3')
     ax3.bar(ind + 0.3, lst3 ,width = 0.3,label = 'Yerevan', hatch= h, edgecolor = 'white', color='C1')
     #ax3.legend(loc='center left', bbox_to_anchor=(1, 0.5), fontsize = 13)
+    ax3.legend(fontsize = 18)
     
-    ax3.set_ylim(0,120)
+    #ax3.set_ylim(0,120)
+    ax3.set_ylim(0,14)
     xTickMarks = [' ','2012','2013','2014','2015','2016','2017','2018','2019']
     xtickNames = ax3.set_xticklabels(xTickMarks)
     plt.setp(xtickNames, fontsize = 20)
     ax3.tick_params(axis='both', which='major', labelsize=18)
-    ax3.set_ylabel('Count of Thunderstorm', fontsize = 18)
-    #ax3.set_title('Averaged max wind speed during thunderstorms (2012-2019)', fontsize = 22)
-    #ax3.set_ylabel('Averaged wind speed(m/s)', fontsize = 20)
+    #ax3.set_ylabel('Count of Thunderstorm', fontsize = 18)
+    ax3.set_title('Averaged max wind speed during thunderstorms (2012-2019)', fontsize = 22)
+    ax3.set_ylabel('Averaged wind speed(m/s)', fontsize = 20)
     ax3.set_xlabel('Years', fontsize = 20)
-    ax3.text(-1, -15, 'a)', fontsize = 18)
+    #ax3.text(-1, -15, 'a)', fontsize = 18)
 
