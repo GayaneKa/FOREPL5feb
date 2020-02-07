@@ -50,3 +50,21 @@ def yearlybar(lst1,lst2,lst3,ax3):
     ax3.set_xlabel('Years', fontsize = 20)
     ax3.text(-1, -15, 'a)', fontsize = 18)
 
+def yearlyplot(lst1,lst2,lst3,ax):
+    ind = np.arange(8)
+    ax.plot(lst1 ,label = 'Aragats', color='C0',marker='*',linewidth=2, markersize=8)
+    ax.plot( lst2 ,label = 'Nor Amberd',color='C3',marker='*',linewidth=2, markersize=8)
+    ax.plot( lst3 ,label = 'Yerevan', color='C1',marker='*',linewidth=2, markersize=8)
+    #ax3.legend(loc='center left', bbox_to_anchor=(1, 0.5), fontsize = 13)
+    ax.legend(fontsize = 18)
+    ax.tick_params(axis='y', which='major', labelsize=18)
+    ax.set_ylim(0,14)
+    #ax3.set_ylim(0,14)
+    xTickMarks = [' ','2012','2013','2014','2015','2016','2017','2018','2019']
+    xtickNames = ax.set_xticklabels(xTickMarks)
+    plt.setp(xtickNames, fontsize = 16)
+    ax.set_title('Averaged max wind speed during thunderstorms (2012-2019)', fontsize = 22)
+    ax.set_ylabel('Averaged wind speed(m/s)', fontsize = 20)
+    ax.set_xlabel('Years', fontsize = 20)
+    ax.text(-1, -15, 'a)', fontsize = 18)
+

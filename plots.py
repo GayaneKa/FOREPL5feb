@@ -38,7 +38,7 @@ def condit(para):
     if str(para)[0] != 'N':
         return(True)
 
-def main(dat,opt):
+def main(dat,opt,yer):
     hour = []
     months = []
     years = []
@@ -90,7 +90,7 @@ def main(dat,opt):
         if len(WSyearly) >1 :
             return(statistics.mean(WSyearly),statistics.mean(Tempyearly))
         else:
-            return(0,0)
+            return(None,0)
 
 
 
@@ -133,7 +133,7 @@ plt.savefig('Figure3.png', dpi = 600)
 plt.show()'''
 #---------------------------------------------------Figure 1----------------------------------------
 
-l= max(main(ardat,1))+1
+'''l= max(main(ardat,1))+1
 
 fig, ax = plt.subplots(figsize=(16, 12))
 
@@ -146,10 +146,10 @@ fforplot.hourlyplot(fig,ax1,main(ardat,1),main(nadat,1),main(yedat,1),8,l)
 fforplot.monthlybar(main(ardat,2),main(nadat,2),main(yedat,2),ax2)
 fforplot.yearlybar(main(ardat,3),main(nadat,3),main(yedat,3),ax3)
 plt.savefig('Figure1.png')
-plt.show()
+plt.show()'''
 
 #--------------------------------------------Figure2-----------------------------
-'''arwinds = []
+arwinds = []
 artemps = []
 nawinds = []
 natemps = []
@@ -165,7 +165,7 @@ for y in range(2012,2020):
 fig, ax3 = plt.subplots(figsize=(14, 10))
 #ax3=plt.subplot(1, 2, 1)
 #ax2=plt.subplot(1, 2, 2)
-fforplot.yearlybar(arwinds,nawinds,yewinds,ax3)
+fforplot.yearlyplot(arwinds,nawinds,yewinds,ax3)
 #fforplot.yearlybar(artemps,natemps,yetemps,ax2)
-plt.savefig('Figure2q.png', dpi = 600)
-plt.show()'''
+plt.savefig('Figure2.png')#, dpi = 600)
+plt.show()
