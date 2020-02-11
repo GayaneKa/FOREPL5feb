@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 import fforplot
 import statistics
 
-from_ar = open('ardata.txt', 'r+')
-from_na = open('nadata.txt', 'r+')
-from_ye = open('yedata.txt', 'r+')
+from_ar = open('fwaragdata.txt', 'r+')
+from_na = open('fwnadata.txt', 'r+')
+from_ye = open('fwyedata.txt', 'r+')
 ardat = from_ar.readlines()
 nadat = from_na.readlines()
 yedat = from_ye.readlines()
@@ -167,5 +167,5 @@ fig, ax3 = plt.subplots(figsize=(14, 10))
 #ax2=plt.subplot(1, 2, 2)
 fforplot.yearlyplot(arwinds,nawinds,yewinds,ax3)
 #fforplot.yearlybar(artemps,natemps,yetemps,ax2)
-plt.savefig('Figure2.png')#, dpi = 600)
+plt.savefig('Figure4.png')#, dpi = 600)
 plt.show()
