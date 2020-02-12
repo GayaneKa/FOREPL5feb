@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 import fforplot
 import statistics
 
-from_ar = open('fwaragdata.txt', 'r+')
-from_na = open('fwnadata.txt', 'r+')
-from_ye = open('fwyedata.txt', 'r+')
+from_ar = open('ardata.txt', 'r+')
+from_na = open('nadata.txt', 'r+')
+from_ye = open('yedata.txt', 'r+')
 ardat = from_ar.readlines()
 nadat = from_na.readlines()
 yedat = from_ye.readlines()
@@ -93,6 +93,20 @@ def main(dat,opt,yer):
             return(None,0)
 
 
+dat1 = []
+dat2 = []
+dat3 = []
+for y in range(2012,2019):
+    dat1.append(main(ardat,10,y)[1])
+    dat2.append(main(nadat,10,y)[1])
+    dat3.append(main(yedat,10,y)[1])
+print(dat1)
+print(dat2)
+print(dat3)
+
+#for y in range(2012,2019):
+#    print(main(ardat,10,y))
+
 
 
 '''tempdat = strtofloat(main(ardat,4))
@@ -149,7 +163,7 @@ plt.savefig('Figure1.png')
 plt.show()'''
 
 #--------------------------------------------Figure2-----------------------------
-arwinds = []
+'''arwinds = []
 artemps = []
 nawinds = []
 natemps = []
@@ -168,4 +182,4 @@ fig, ax3 = plt.subplots(figsize=(14, 10))
 fforplot.yearlyplot(arwinds,nawinds,yewinds,ax3)
 #fforplot.yearlybar(artemps,natemps,yetemps,ax2)
 plt.savefig('Figure4.png')#, dpi = 600)
-plt.show()
+plt.show()'''

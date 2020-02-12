@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import fforplot
 import statistics
+import numpy as np
 
 from_ar = open('fwaragdata.txt', 'r+')
 from_na = open('fwnadata.txt', 'r+')
@@ -38,7 +39,7 @@ def condit(para):
     if str(para)[0] != 'N':
         return(True)
 
-def main(dat,opt):
+def main(dat,opt,yer):
     hour = []
     months = []
     years = []
@@ -54,27 +55,36 @@ def main(dat,opt):
             dt = d.split(aa)[j]
             if len(dt) > 0:
                 year, month, day, h,m,temp,hum,ws,press,something = dt.split(',')
-                if condit(temp):
+                if float(year) == yer and condit(temp):
                     if str(temp)[1] != 'N':
                         #print(temp, float(temp))
                         Temperature.append(float(temp))
-                if condit(hum):
+                '''if condit(hum):
                     Humidity.append(float(hum))
                 if condit(ws):
                     if float(ws) != 0:
                         Windspeed.append(float(ws))
                 if condit(press):
                     if float(press.split(')')[0]) < 950:
-                        Pressure.append(float(press.split(')')[0]))
+                        Pressure.append(float(press.split(')')[0]))'''
             else:
                 continue
-        return(Temperature,Humidity,Windspeed,Pressure)
-
-
-
-#main(nadat,1)
-
-fig, ax = plt.subplots(2,2, figsize = (12,8)) #,sharey = True)
+        #return(Temperature,Humidity,Windspeed,Pressure)
+    try:
+        return(statistics.mean(Temperature))
+    except:
+        return(None)
+'''dat1 = []
+dat2 = []
+dat3 = []
+for y in range(2012,2019):
+    dat1.append(main(ardat,1,y))
+    dat2.append(main(nadat,1,y))
+    dat3.append(main(yedat,1,y))
+print(dat1)
+print(dat2)
+print(dat3)'''
+'''fig, ax = plt.subplots(2,2, figsize = (12,8)) #,sharey = True)
 #plt.title('Distribution of meteorological parameters during thunderstorms')
 plt.suptitle('Distribution of meteorological parameters during fair weather at Yerevan station', fontsize = 16)     # (1)
 
@@ -116,6 +126,47 @@ ax[1,1].set_ylim(0,650)
 ax[1,0].set_ylim(0,650)
 ax[0,1].set_ylim(0,650)
 ax[0,0].set_ylim(0,650)
-plt.savefig('Figure7.png') #, dpi = 600)
+plt.savefig('Figure7q.png', dpi = 600)
 
+plt.show()'''
+
+def yearlybar(lst1,lst2,lst3,ax3,tt):
+    ind = np.arange(7)
+    ax3.bar(ind  , lst1 ,width = 0.3,label = 'Aragats', hatch= "-",edgecolor = 'white', color='C0')
+    ax3.bar(ind - 0.3, lst2 ,width = 0.3,label = 'Nor Amberd', hatch= "\\\\",edgecolor = 'white', color='C3')
+    ax3.bar(ind + 0.3, lst3 ,width = 0.3,label = 'Yerevan',  hatch= 'xx', edgecolor = 'white', color='C1')
+    #ax3.legend(loc='center left', bbox_to_anchor=(1, 0.5), fontsize = 13)
+    #ax3.legend(title = tt,fontsize = 14)
+    ax3.tick_params(axis='y', which='major',labelsize=14)
+    #ax3.set_ylim(0,120)
+    ax3.set_ylim(0,30)
+    xTickMarks = [' ','2012','2013','2014','2015','2016','2017','2018','2019']
+    xtickNames = ax3.set_xticklabels(xTickMarks)
+    plt.setp(xtickNames,fontsize=14)
+    leg = ax3.legend(fontsize = 14)
+    leg.set_title(tt,prop={'size':14})
+    ax3.set_ylabel('Temperature(C)',fontsize=14)
+    #ax3.set_title('Averaged max wind speed during thunderstorms (2012-2019)', fontsize = 22)
+    #ax3.set_ylabel('Averaged wind speed(m/s)', fontsize = 20)
+    ax3.set_xlabel('Years',fontsize=14)
+
+
+arfw = [7.65164177989337, 4.247474731795916, 8.337681181647856, 8.830650167453216, 7.285443037253203, 8.160952378667536, 8.074033151468191]
+nafw = [12.058333347241083, 11.577251216105376, 15.073018287842322, 16.839251042735064, 14.962929053372731, 16.5813559501374, 15.849693884122736]
+yefw = [0, 19.740488847434584, 20.87193717080417, 22.76706763532825, 20.972662710155962, 22.85959913408706, 21.196266056080823]
+
+
+ar = [3.673437513760291, 2.24871800133051, 4.035384609951422, 1.9337662593884901, 3.473529404577087, 1.4263157682460652, 4.323684190841098]
+na =[9.980000019073486, 10.661904755092802, 11.39705880950479, 11.526829242706299, 11.531999969482422, 11.758064577656407, 11.641025711328556]
+ye =[0, 14.433333290947807, 18.340000009536745, 16.894117579740637, 19.12500003973643, 19.56666660308838, 22.55714289347331]
+
+fig = plt.subplots(figsize=(10, 10))
+ax1=plt.subplot(2, 1, 1)
+ax2=plt.subplot(2, 1, 2)
+
+#ax1, ax2 = plt.subplots()
+yearlybar(arfw,nafw,yefw,ax1, 'Fair weather')
+yearlybar(ar,na,ye,ax2, 'Thunderstorm')
+
+plt.savefig('Figure8.png')
 plt.show()
